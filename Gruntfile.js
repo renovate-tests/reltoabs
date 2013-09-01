@@ -51,5 +51,6 @@ module.exports = function (grunt) {
   // Default task.
   //grunt.registerTask('default', ['jshint', 'nodeunit']);
   grunt.registerTask('default', ['jshint', 'jasmine-node']);
+  grunt.registerTask('travis', ['jshint', 'jasmine-node']);
 
 };
