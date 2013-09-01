@@ -1,13 +1,12 @@
-# relTOabs [![Build Status](https://secure.travis-ci.org/claydiffrient/reltoabs.png?branch=master)](http://travis-ci.org/claydiffrient/reltoabs)
+# relTOabs [![Build Status](https://secure.travis-ci.org/claydiffrient/relTOabs.png?branch=master)](http://travis-ci.org/claydiffrient/relTOabs)
 
 Changes links from relative to absolute.
 
 ## Getting Started
-Install the module with: `npm install reltoabs`
+Install the module with: `npm install relTOabs`
 
 ```javascript
-var reltoabs = require('reltoabs');
-reltoabs.awesome(); // "awesome"
+var relTOabs = require('relTOabs');
 ```
 
 ## Documentation

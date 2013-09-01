@@ -1,10 +1,10 @@
 {
-  "name": "reltoabs",
+  "name": "relTOabs",
   "version": "0.0.0",
-  "main": "lib/reltoabs.js",
+  "main": "lib/relTOabs.js",
   "description": "Changes links from relative to absolute.",
-  "homepage": "https://github.com/claydiffrient/reltoabs",
-  "bugs": "https://github.com/claydiffrient/reltoabs/issues",
+  "homepage": "https://github.com/claydiffrient/relTOabs",
+  "bugs": "https://github.com/claydiffrient/relTOabs/issues",
   "author": {
     "name": "Clay Diffrient",
     "email": "clay.diffrient@gmail.com",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/claydiffrient/reltoabs"
+    "url": "https://github.com/claydiffrient/relTOabs"
   },
   "licenses": [
     {
