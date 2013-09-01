@@ -1,0 +1,34 @@
+{
+  "name": "reltoabs",
+  "version": "0.0.0",
+  "main": "lib/reltoabs.js",
+  "description": "Changes links from relative to absolute.",
+  "homepage": "https://github.com/claydiffrient/reltoabs",
+  "bugs": "https://github.com/claydiffrient/reltoabs/issues",
+  "author": {
+    "name": "Clay Diffrient",
+    "email": "clay.diffrient@gmail.com",
+    "url": "http://www.simplydiffrient.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claydiffrient/reltoabs"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.0",
+    "grunt-contrib-jasmine-node": "~0.1.1"
+  },
+  "dependencies": {
+    "underscore": "~1.5.1"
+  },
+  "scripts": {
+    "test": "grunt";
+  }
+}
