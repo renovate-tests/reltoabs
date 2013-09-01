@@ -29,6 +29,6 @@
     "underscore": "~1.5.1"
   },
   "scripts": {
-    "test": "grunt";
+    "test": "grunt"
   }
 }
