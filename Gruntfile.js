@@ -4,9 +4,6 @@ module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    nodeunit: {
-      files: ['test/**/*_test.js']
-    },
     jshint: {
       options: {
         jshintrc: '.jshintrc',
@@ -38,9 +35,17 @@ module.exports = function (grunt) {
     "jasmine-node": {
       run: {
         spec: "test/spec"
+      },
+      options: {
+         growl: true
+      },
+      travis: {
+        options: {
+          growl: false
+        }
       }
     }
-  });
+});
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
@@ -51,6 +56,6 @@ module.exports = function (grunt) {
   // Default task.
   //grunt.registerTask('default', ['jshint', 'nodeunit']);
   grunt.registerTask('default', ['jshint', 'jasmine-node']);
-  grunt.registerTask('travis', ['jshint', 'jasmine-node']);
+  grunt.registerTask('travis', ['jshint', 'jasmine-node:travis']);
 
 };
