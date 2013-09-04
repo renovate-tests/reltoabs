@@ -1,4 +1,4 @@
-var reltoabs = require("../../lib/reltoabs");
+var reltoabs = require("../../lib/reltoabs").reltoabs;
 var _ = require('underscore');
 
 describe("Testing if something is absolute", function () {
@@ -38,8 +38,7 @@ describe("Testing file opening abilities", function () {
 
 describe("Testing the parsing abilities", function () {
    var fileContents;
-   //var baseUrl = "http://simplydiffrient.com";
-
+   //var baseUrl = "http://www.simplydiffrient.com";
    beforeEach(function () {
       fileContents = '<!doctype html>\n<html lang="en">\n<head>\n' +
                         '   <meta charset="UTF-8">\n   <title>Document</title>\n' +
@@ -65,12 +64,26 @@ describe("Testing the parsing abilities", function () {
       expect(results.length).toBe(3);
    });
 
-//TODO: This is a bit finiky... Probably a better way.
-/*   it("should return an array of absolute references", function () {
-      var test1 = reltoabs.findRelatives(fileContents);
-      console.log(test1);
-      var results = reltoabs.convertRelToAbs(test1/*reltoabs.findRelatives(fileContents), baseUrl);
-      console.log(results);
-      expect(reltoabs.findRelatives(results.join(','))).toBe(0);
+   it("should find the position of the first \" in the first href.", function () {
+      var location = reltoabs.getLinkPositions(fileContents);
+      expect(location[0].first).toBe(111);
+   });
+
+   it("should find the position of the last \" in the first href.", function () {
+      var location = reltoabs.getLinkPositions(fileContents);
+      expect(location[0].last).toBe(132);
+   });
+
+   it("should not find the position of the absolute reference.", function () {
+      var location = reltoabs.getRelativeLinkPositions(fileContents);
+      expect(location.length).toBe(3);
+      expect(location[2].first).toBe(196);   //Make sure the last one wasn't the absolute one.
+      expect(location[2].last).toBe(215);
+   });
+
+/*   it("should replace a string with the absolute reference", function () {
+      var locations = reltoabs.getRelativeLinkPositions(fileContents);
+
    });*/
+
 });
