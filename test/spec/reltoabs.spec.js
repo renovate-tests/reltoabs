@@ -81,9 +81,37 @@ describe("Testing the parsing abilities", function () {
       expect(location[2].last).toBe(215);
    });
 
-/*   it("should replace a string with the absolute reference", function () {
+   it("should find the proper relative links from the positions.", function () {
       var locations = reltoabs.getRelativeLinkPositions(fileContents);
+      expect(locations.length).toBe(3);
+      expect(fileContents.substring(locations[0].first + 6, locations[0].last - 1)).toBe("something.html");
+      expect(fileContents.substring(locations[1].first + 6, locations[1].last - 1)).toBe("somethingElse.html");
+      expect(fileContents.substring(locations[2].first + 6, locations[2].last - 1)).toBe("another.html");
+   });
 
-   });*/
+   it("should replace a string with the absolute reference", function () {
+      var locations = reltoabs.getRelativeLinkPositions(fileContents);
+      var result = reltoabs.updateLinkReference("http://simplydiffrient.com",
+                                                 fileContents, locations[0].first + 6,
+                                                 locations[0].last - 1).content;
+      expect(result).toBe('<!doctype html>\n<html lang="en">\n<head>\n' +
+                        '   <meta charset="UTF-8">\n   <title>Document</title>\n' +
+                        '</head>\n<body>\n<a href="http://simplydiffrient.com/something.html">Something</a>' +
+                        '<a href="somethingElse.html">Something Else</a>' +
+                        '<a href="another.html">Another</a>' +
+                        '<a href="http://simplydiffrient.com">Simply Diffrient</a>' +
+                        '\n</body>\n</html>');
+   });
+
+   it("should replace all relative references with the absolute references.", function (){
+      var result = reltoabs.replaceRelatives("http://simplydiffrient.com", fileContents);
+      expect(result).toBe('<!doctype html>\n<html lang="en">\n<head>\n' +
+                        '   <meta charset="UTF-8">\n   <title>Document</title>\n' +
+                        '</head>\n<body>\n<a href="http://simplydiffrient.com/something.html">Something</a>' +
+                        '<a href="http://simplydiffrient.com/somethingElse.html">Something Else</a>' +
+                        '<a href="http://simplydiffrient.com/another.html">Another</a>' +
+                        '<a href="http://simplydiffrient.com">Simply Diffrient</a>' +
+                        '\n</body>\n</html>');
+   });
 
 });

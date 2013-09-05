@@ -1,6 +1,6 @@
 {
   "name": "reltoabs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "lib/relTOabs.js",
   "description": "Changes links from relative to absolute.",
   "homepage": "https://github.com/claydiffrient/relTOabs",
@@ -28,9 +28,13 @@
     "grunt-cli": "~0.1.9"
   },
   "dependencies": {
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "underscore.string": "~2.3.3"
   },
   "scripts": {
     "test": "grunt travis --verbose"
+  },
+  "bin": {
+    "reltoabs": "bin/reltoabs"
   }
 }
