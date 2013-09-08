@@ -44,6 +44,14 @@ module.exports = function (grunt) {
           growl: false
         }
       }
+    },
+    jsdoc: {
+      dist: {
+        src: ['lib/*.js', 'test/spec/*.js'],
+        options: {
+          destination: 'doc'
+        }
+      }
     }
 });
 
@@ -52,10 +60,12 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jasmine-node');
+  grunt.loadNpmTasks('grunt-jsdoc');
 
   // Default task.
   //grunt.registerTask('default', ['jshint', 'nodeunit']);
-  grunt.registerTask('default', ['jshint', 'jasmine-node']);
+  grunt.registerTask('default', ['jshint', 'jasmine-node', 'jsdoc:dist']);
   grunt.registerTask('travis', ['jshint', 'jasmine-node:travis']);
+  grunt.registerTask('docs', ['jsdoc:dist'])
 
 };
