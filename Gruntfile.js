@@ -66,6 +66,6 @@ module.exports = function (grunt) {
   //grunt.registerTask('default', ['jshint', 'nodeunit']);
   grunt.registerTask('default', ['jshint', 'jasmine-node', 'jsdoc:dist']);
   grunt.registerTask('travis', ['jshint', 'jasmine-node:travis']);
-  grunt.registerTask('docs', ['jsdoc:dist'])
+  grunt.registerTask('docs', ['jsdoc:dist']);
 
 };
